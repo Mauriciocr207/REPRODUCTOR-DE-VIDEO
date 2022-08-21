@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VIDEO</title>
+
+    <!-- Ícono -->
+    <link rel="icon" href="resources/icono/kpop.png">
+
+    <!-- Normalize -->
+    <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
+
+    <!-- Tipografía -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Square+Peg&display=swap" rel="stylesheet">
+
+    <!-- Estilos -->
+    <link rel="stylesheet" href="styles/index.css">
+</head>
+
+<body>
+    <div class="logo" id="logoContainer">
+        <img id="logo" src="resources/img/Logo-Tw.png" alt="">
+    </div>
+
+    <header class="header" id="header">
+        <div class="button">
+            <input type="checkbox" id="btn-switch">
+            <label for="btn-switch" class="lbl-switch"></label>
+        </div>
+    </header>
+
+    <aside class="aside" id="aside">
+        <div class="">
+            <input type="checkbox" id="navbar-button"></input>
+            <label for="navbar-button" class="navbar-button fa-solid fa-bars-staggered"></label>
+        </div>
+
+        <nav class="lista">
+            <ul id="lista-container" class="lista__ul">
+            </ul>
+        </nav>
+    </aside>
+
+    <section class="content" >
+        <!-- Video -->
+        <div class="video">
+            <video id="video" src=""></video>
+        </div>
+
+        <!-- Barra -->
+        <div class="brra-load" id="cargaContainer">
+            <div class="barra">
+                <div class="before__range" id="beforeRange"></div>
+                <input type="range" class="load" id="barraLoad" min="0" max="100" value=0>
+            </div>
+        </div>
+
+        <!-- Botones -->
+        <div class="buttons"  id="ButtonsContainer">
+            <div class="buttons-container">
+                <div class="buttons__first-section">
+                    <!-- Iconos -->
+                    <!-- Play y pausa -->
+                    <img id="play" class="button fa-solid fa-play" src="">
+                    <!-- Siguiente video -->
+                    <img id="next" class="button fa-solid fa-forward-step" src="">
+                    <!-- Recargar video -->
+                    <img id="reload" class="button fa-solid fa-rotate-right" src="" alt="">
+                </div>
+                <div class="buttons__second-section">
+                    <!-- Volumen -->
+                    <div class="volume__controls-container">
+                        <div class="range">
+                        </div>
+                        <input id="volume__range" class="range__control" type="range" min="0" max="100" value="70">
+                        <img id="volume" class="button fa-solid fa-volume-high" src="" alt="">
+                    </div>
+
+                    <!-- Agrandar video -->
+                    <img id="resize" class="button fa-solid fa-expand" src="" alt="">
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <script src="https://kit.fontawesome.com/d10d1e89d5.js" crossorigin="anonymous"></script>
+    <script src="js/app.js"></script>
+</body>
+
+</html>
