@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VIDEO</title>
+    <title>ForYou</title>
 
     <!-- Ícono -->
     <link rel="icon" href="resources/icono/kpop.png">
@@ -52,37 +52,39 @@
             <video id="video" src=""></video>
         </div>
 
-        <!-- Barra -->
-        <div class="brra-load" id="cargaContainer">
-            <div class="barra">
-                <div class="before__range" id="beforeRange"></div>
-                <input type="range" class="load" id="barraLoad" min="0" max="100" value=0>
-            </div>
-        </div>
-
-        <!-- Botones -->
-        <div class="buttons"  id="ButtonsContainer">
-            <div class="buttons-container">
-                <div class="buttons__first-section">
-                    <!-- Iconos -->
-                    <!-- Play y pausa -->
-                    <img id="play" class="button fa-solid fa-play" src="">
-                    <!-- Siguiente video -->
-                    <img id="next" class="button fa-solid fa-forward-step" src="">
-                    <!-- Recargar video -->
-                    <img id="reload" class="button fa-solid fa-rotate-right" src="" alt="">
+        <div class="controls">
+            <!-- Barra -->
+            <div class="brra-load" id="cargaContainer">
+                <div class="barra">
+                    <div class="before__range" id="beforeRange"></div>
+                    <input type="range" class="load" id="barraLoad" min="0" max="100" value=0>
                 </div>
-                <div class="buttons__second-section">
-                    <!-- Volumen -->
-                    <div class="volume__controls-container">
-                        <div class="range">
-                        </div>
-                        <input id="volume__range" class="range__control" type="range" min="0" max="100" value="70">
-                        <img id="volume" class="button fa-solid fa-volume-high" src="" alt="">
-                    </div>
+            </div>
 
-                    <!-- Agrandar video -->
-                    <img id="resize" class="button fa-solid fa-expand" src="" alt="">
+            <!-- Botones -->
+            <div class="buttons"  id="ButtonsContainer">
+                <div class="buttons-container">
+                    <div class="buttons__first-section">
+                        <!-- Iconos -->
+                        <!-- Play y pausa -->
+                        <img id="play" class="button fa-solid fa-play" src="">
+                        <!-- Siguiente video -->
+                        <img id="next" class="button fa-solid fa-forward-step" src="">
+                        <!-- Recargar video -->
+                        <img id="reload" class="button fa-solid fa-rotate-right" src="" alt="">
+                    </div>
+                    <div class="buttons__second-section">
+                        <!-- Volumen -->
+                        <div class="volume__controls-container">
+                            <div class="range">
+                            </div>
+                            <input id="volume__range" class="range__control" type="range" min="0" max="100" value="70">
+                            <img id="volume" class="button fa-solid fa-volume-high" src="" alt="">
+                        </div>
+
+                        <!-- Agrandar video -->
+                        <img id="resize" class="button fa-solid fa-expand" src="" alt="">
+                    </div>
                 </div>
             </div>
         </div>

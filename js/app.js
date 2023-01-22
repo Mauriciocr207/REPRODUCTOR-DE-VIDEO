@@ -28,6 +28,7 @@
         {name: 'Your existence', url: 'resources/twentyfivetwentyone/your existence.mp4'}
     ]
     const btsTracks = [
+        {name: 'The Astronaut', url: 'resources/bts/The Astronaut.mp4'},
         {name: 'Where You From', url: 'resources/bts/Where You From.mp4'},
         {name: 'Yet To Come', url: 'resources/bts/Yet To Come.mp4'},
         {name: 'Dynamite', url: 'resources/bts/Dynamite.mp4'},
@@ -45,19 +46,30 @@
     const aside  = document.querySelector('#aside');
     const cargaContainer = document.querySelector('#cargaContainer');
     const ButtonsContainer = document.querySelector('#ButtonsContainer');
+    const note = document.querySelector('#note');
+    const controls = document.querySelector('.controls');
 
 
-
+let firstVideo = false;
 // Video Controls --> Funciones
+function verifingFirstVideo() {
+    if(!firstVideo) {
+        logo.src = '';
+        video.src = Track[0].url;
+        firstVideo = true;
+    }
+}
 function playStop() {
+    verifingFirstVideo();
     if(video.paused) {
         video.play();
         changeClassList('#play', 'fa-play','fa-pause');
     } else {
         video.pause();
         changeClassList('#play','fa-pause','fa-play');
-    }
+    };
 };
+
 function reSize() {
     const body = document.querySelector('body');
     if(document.fullscreenElement) {
@@ -123,6 +135,11 @@ function changeVideoTime() {
     const percentage = parseInt(this.value);
     video.currentTime = video.duration * percentage / 100;
 }
+
+let viewed = false;
+note.addEventListener('mouseover', () => viewed = true);
+note.addEventListener('mouseout', () => viewed = false);
+
 play.addEventListener('click', playStop);
 nextVideoButton.addEventListener('click', nextVideo);
 reloadVideo.addEventListener('click', reViewVideo);
@@ -167,6 +184,7 @@ function generateTrack() {
         resize.style.color = color2;
         barra.style.backgroundColor = '#515151';
         document.querySelector('.lista').style.color = color2;
+        document.querySelector('.touch').style.color = color2;
     } else {
         Track = twiceTracks;
         video.src = '';
@@ -181,6 +199,7 @@ function generateTrack() {
         resize.style.color = color2;
         barra.style.backgroundColor = color2;
         document.querySelector('.lista').style.color = color2;
+        document.querySelector('.touch').style.color = color2;
     }
     Track.forEach(function(element) {
         let li = document.createElement('Li');
@@ -217,7 +236,16 @@ function changeLogo() {
         logoContainer.style.transition = 'all .3s';
         logoContainer.style.opacity = '1';    
     }, 600);
+
+    // Restableciendo los valores del primer click al play
+    firstVideo = false;
+    changeClassList('#play', 'fa-pause','fa-play');
+
+    
+    
 }
+
+
 changeThemeButton.addEventListener('click', generateTrack);
 changeThemeButton.addEventListener('click', changeLogo);
 
@@ -253,18 +281,23 @@ function preLoadVideo() {
 function appearControls() {
     header.style.opacity = '1';
     aside.style.opacity = '1';
+    note.style.opacity = '1';
     cargaContainer.style.opacity = '1';
     ButtonsContainer.style.opacity = '1';
+    controls.style.opacity = '1';
 };
 function disappearControls() {
     header.style.opacity = '0';
     aside.style.opacity = '0';
+    note.style.opacity = '0';
     cargaContainer.style.opacity = '0';
     ButtonsContainer.style.opacity = '0';
+    controls.style.opacity = '0';
 };
 (function () {
+    
     let set; 
-    const timeAwait = 6000;
+    const timeAwait = 2000;
     let moving = false;
     let setTimeoutEjecuted = false;
     document.onmousemove = function() {
@@ -272,7 +305,7 @@ function disappearControls() {
         setTimeoutEjecuted = false;
     }
     setInterval(() => {
-        if(moving === true || video.paused) {
+        if(moving || video.paused || viewed) {
             moving = false;
             // Estilos al movimiento
             // console.log('moviendo');
@@ -285,9 +318,7 @@ function disappearControls() {
                 setTimeoutEjecuted = true;    
                 set = setTimeout(() => {
                     // Estilos al parar
-                    if(!trackListButton__input.checked) {
-                        disappearControls();
-                    }
+                    if(!trackListButton__input.checked) disappearControls();
                 }, timeAwait);
             }
         }
@@ -300,5 +331,6 @@ video.onloadeddata = videoTime;
 
 
 // Funciones del objeto window
-window.onload = generateTrack;
+window.onload = generateTrack
+
 
