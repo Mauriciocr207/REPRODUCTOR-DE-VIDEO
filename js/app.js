@@ -179,7 +179,6 @@ function generateTrack() {
         resize.style.color = color2;
         barra.style.backgroundColor = '#515151';
         document.querySelector('.lista').style.color = color2;
-        document.querySelector('.touch').style.color = color2;
     } else {
         Track = twiceTracks;
         video.src = '';
@@ -194,7 +193,6 @@ function generateTrack() {
         resize.style.color = color2;
         barra.style.backgroundColor = color2;
         document.querySelector('.lista').style.color = color2;
-        document.querySelector('.touch').style.color = color2;
     }
     Track.forEach(function(element) {
         let li = document.createElement('Li');
