@@ -46,7 +46,6 @@
     const aside  = document.querySelector('#aside');
     const cargaContainer = document.querySelector('#cargaContainer');
     const ButtonsContainer = document.querySelector('#ButtonsContainer');
-    const note = document.querySelector('#note');
     const controls = document.querySelector('.controls');
 
 
@@ -135,10 +134,6 @@ function changeVideoTime() {
     const percentage = parseInt(this.value);
     video.currentTime = video.duration * percentage / 100;
 }
-
-let viewed = false;
-note.addEventListener('mouseover', () => viewed = true);
-note.addEventListener('mouseout', () => viewed = false);
 
 play.addEventListener('click', playStop);
 nextVideoButton.addEventListener('click', nextVideo);
@@ -281,7 +276,6 @@ function preLoadVideo() {
 function appearControls() {
     header.style.opacity = '1';
     aside.style.opacity = '1';
-    note.style.opacity = '1';
     cargaContainer.style.opacity = '1';
     ButtonsContainer.style.opacity = '1';
     controls.style.opacity = '1';
@@ -289,7 +283,6 @@ function appearControls() {
 function disappearControls() {
     header.style.opacity = '0';
     aside.style.opacity = '0';
-    note.style.opacity = '0';
     cargaContainer.style.opacity = '0';
     ButtonsContainer.style.opacity = '0';
     controls.style.opacity = '0';
@@ -305,7 +298,7 @@ function disappearControls() {
         setTimeoutEjecuted = false;
     }
     setInterval(() => {
-        if(moving || video.paused || viewed) {
+        if(moving || video.paused) {
             moving = false;
             // Estilos al movimiento
             // console.log('moviendo');
